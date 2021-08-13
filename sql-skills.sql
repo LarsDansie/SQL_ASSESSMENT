@@ -66,3 +66,61 @@ FROM album a
 JOIN artist ar
 ON a.artist_id = ar.artist_id;
 
+
+
+EXTRA CREDIT
+
+SELECT * 
+FROM artist
+ORDER BY name ASC
+LIMIT 10;
+
+SELECT * FROM artist
+WHERE name LIKE 'Black%';
+
+SELECT * FROM artist
+WHERE name LIKE '%Black%';
+
+EMPLOYEE
+
+
+SELECT * FROM employee
+ORDER BY birth_date DESC
+LIMIT 1;
+
+
+SELECT * FROM employee
+ORDER BY birth_date ASC
+LIMIT 1;
+
+INOVICE 
+
+SELECT COUNT(*) FROM invoice
+WHERE billing_state IN ('CA', 'TX', 'IN');
+
+SELECT AVG(total) FROM invoice
+
+
+JOOIN QUERIES
+
+SELECT pt.playlist_track_id, t.track_id
+FROM playlist_track pt 
+JOIN playlist p ON p.playlist_id = pt.playlist_id
+JOIN track t ON t.track_id =  pt.track_id
+WHERE p.name = 'Music';
+
+SELECT t.name
+FROM track t
+JOIN playlist_track pt ON pt.track_id = t.track_id
+WHERE playlist_id = 5;
+
+SELECT t.name, p.name
+FROM track t
+JOIN playlist_track pt ON t.track_id =  pt.track_id
+JOIN playlist p ON p.playlist_id = pt.playlist_id;
+
+SELECT t.name, a.title
+FROM track t
+JOIN album a ON a.album_id = t.album_id
+JOIN genre g ON g.genre_id = t.genre_id
+WHERE g.name = 'Alternative & Punk';
